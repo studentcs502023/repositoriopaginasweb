@@ -1,0 +1,20 @@
+<template>
+    <div >
+        <h1>Directiva v-if y v-else y v-else-if</h1>
+        <img v-if="precio < 1000" src="https://cdnartic.ar/TeJ1ZM7m0OgNtRavhARClF0fT0o=/1500x0/filters:no_upscale():format(webp):quality(40)/https://cdn.eleco.com.ar/media/2025/05/homero.webp" alt="">
+        <p v-else-if=" precio< 20000">soy el v-else</p>
+        <p v-else>soy mayor a 20000</p>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+let precio = ref(1010)
+
+</script>
+
+<style>
+
+</style>
+

@@ -1,0 +1,52 @@
+<template>
+  <div>
+    <h1>Directivas v-on v-model</h1>
+    <p>{{ nombre }}</p>
+    <button v-on:click="mayusculas()">Mayusculas</button>
+    <input type="text" placeholder="por favor digite el nombre..." v-model="nombre">
+    <div>
+        <input type="text" v-model.number="nu1">
+        <input type="text" v-model.number="nu2">
+        <h2>{{ r }}</h2>
+        <button @click="sumar()">sumar</button>
+    </div>
+    <div>
+        <input type="text" v-model="tel">
+        <input type="text" v-model="correo">
+        <button @click="guardar()">Guardar</button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+let nombre = ref("Luis")
+let nu1 =ref(0)
+let nu2 =ref(0)
+let r =ref(0)
+let tel = ref("")
+let correo = ref("")
+let data = ref([])
+
+function guardar(){
+    let datos = {
+        correo:correo.value,
+        telefono: tel.value
+    }
+
+data.value.push(datos)
+console.log(data.value);
+
+}
+
+function mayusculas(){
+    console.log("esta ejecutando...");
+    nombre.value = nombre.value.toUpperCase()
+}
+
+function sumar(){
+    r.value = nu1.value + nu2.value
+}
+
+</script>
